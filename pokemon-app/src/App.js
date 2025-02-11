@@ -6,6 +6,7 @@ import StatsView from "./components/StatsView";
 import Deck from "./components/Deck";
 import PokemonList from "./components/PokemonList";
 import TypeFilter from "./components/TypeFilter";
+import Squad from "./components/Squad";
 
 const App = () => {
   const [pokemonList, setPokemonList] = useState([]);
@@ -13,6 +14,7 @@ const App = () => {
   const [filterType, setFilterType] = useState("");
   const [types, setTypes] = useState([]);
   const [deck, setDeck] = useState([]);
+  const [squad, setSquad] = useState([]);
 
   useEffect(() => {
     fetch("https://pokeapi.co/api/v2/pokemon?limit=151")
@@ -38,6 +40,16 @@ const App = () => {
 
   const removeFromDeck = (id) => {
     setDeck(deck.filter((pokemon) => pokemon.id !== id));
+  };
+
+  const addToSquad = (pokemon) => {
+    if (squad.length < 5 && !squad.some((p) => p.id === pokemon.id)) {
+      setSquad([...squad, pokemon]);
+    }
+  };
+  
+  const removeFromSquad = (id) => {
+    setSquad(squad.filter((pokemon) => pokemon.id !== id));
   };
 
   return (
@@ -68,7 +80,7 @@ const App = () => {
         <Box sx={{ flex: "2", overflowY: "auto", p: 2 }}>
           <SearchBar search={search} setSearch={setSearch} />
           <TypeFilter filterType={filterType} setFilterType={setFilterType} types={types} />
-          <PokemonList pokemonList={pokemonList} search={search} filterType={filterType} addToDeck={addToDeck} />
+          <PokemonList pokemonList={pokemonList} search={search} filterType={filterType} addToDeck={addToDeck} addToSquad={addToSquad} squad={squad}/>
         </Box>
         <Box
           sx={{
@@ -80,7 +92,8 @@ const App = () => {
             order: { xs: 3, md: 1 },
           }}
         >
-        <StatsView pokemonList={pokemonList} />
+          <StatsView pokemonList={pokemonList} />
+          <Squad squad={squad} removeFromSquad={removeFromSquad} />
         </Box>
       </Box>
     </Box>
