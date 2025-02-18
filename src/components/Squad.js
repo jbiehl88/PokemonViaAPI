@@ -30,6 +30,19 @@ const Squad = ({ squad, removeFromSquad }) => {
           </Card>
         ))
       )}
+
+      {squad.length >= 2 && (
+        <Box display="flex" justifyContent="center" mt={2}>
+          <Button
+            variant="contained"
+            color="primary"
+            size="large"
+            onClick={() => console.log("Battle Started!")}
+          >
+            Battle!
+          </Button>
+        </Box>
+      )}
     </Box>
   );
 };
