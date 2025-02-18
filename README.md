@@ -40,7 +40,7 @@ npm or yarn
 
 ``` npm install                                                   ```
 
-or
+   or
 
 ``` yarn install                                                  ```
 
@@ -48,7 +48,7 @@ or
 
 ``` npm start                                                     ```
 
-or
+   or
 
 ``` yarn start                                                    ```
 
