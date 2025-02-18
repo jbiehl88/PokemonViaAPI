@@ -11,43 +11,15 @@ import Squad from "./components/Squad";
 import { SquadProvider } from "./context/SquadContext";
 import { PokemonProvider } from "./context/PokemonContext";
 import { DeckProvider } from "./context/DeckContext";
+import { StatsProvider } from "./context/StatsContext";
 
 const App = () => {
-  const [pokemonList, setPokemonList] = useState([]);
-  // const [filterType, setFilterType] = useState("");
-  // const [types, setTypes] = useState([]);
-  // const [deck, setDeck] = useState([]);
-
-  // useEffect(() => {
-  //   fetch("https://pokeapi.co/api/v2/pokemon?limit=151")
-  //     .then((res) => res.json())
-  //     .then(async (data) => {
-  //       const detailedPokemon = await Promise.all(
-  //         data.results.map(async (pokemon) => {
-  //           const res = await fetch(pokemon.url);
-  //           return res.json();
-  //         })
-  //       );
-  //       setPokemonList(detailedPokemon);
-  //       const allTypes = [...new Set(detailedPokemon.flatMap((p) => p.types.map((t) => t.type.name)))];
-  //       setTypes(allTypes);
-  //     });
-  // }, []);
-
-  // const addToDeck = (pokemon) => {
-  //   if (!deck.find((p) => p.id === pokemon.id)) {
-  //     setDeck([...deck, pokemon]);
-  //   }
-  // };
-
-  // const removeFromDeck = (id) => {
-  //   setDeck(deck.filter((pokemon) => pokemon.id !== id));
-  // };
 
   return (
     <SquadProvider>
       <PokemonProvider>
       <DeckProvider>
+      <StatsProvider>
       <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
         <Header />
         <Box
@@ -87,11 +59,12 @@ const App = () => {
               order: { xs: 3, md: 1 },
             }}
           >
-            <StatsView pokemonList={pokemonList} />
+            <StatsView />
             <Squad />
           </Box>
         </Box>
       </Box>
+      </StatsProvider>
       </DeckProvider>
       </PokemonProvider>
     </SquadProvider>
