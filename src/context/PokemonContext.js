@@ -20,7 +20,6 @@ export const PokemonProvider = ({ children }) => {
         );
         setPokemonList(detailedPokemon);
         
-        // Extract unique Pokémon types
         const allTypes = [...new Set(detailedPokemon.flatMap((p) => p.types.map((t) => t.type.name)))];
         setTypes(allTypes);
       });
