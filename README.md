@@ -30,27 +30,27 @@ npm or yarn
 
 1. Clone the repository:
 
-``` git clone https://github.com/jbiehl88/PokemonViaAPI.git       ```
+&nbsp;&nbsp;&nbsp; ``` git clone https://github.com/jbiehl88/PokemonViaAPI.git       ```
 
 2. Navigate to the project folder:
 
-``` cd PokemonViaAPI                                              ```
+&nbsp;&nbsp;&nbsp; ``` cd PokemonViaAPI                                              ```
 
 3. Install dependencies:
 
-``` npm install                                                   ```
+&nbsp;&nbsp;&nbsp; ``` npm install                                                   ```
 
 &nbsp;&nbsp;&nbsp;   or
 
-``` yarn install                                                  ```
+&nbsp;&nbsp;&nbsp; ``` yarn install                                                  ```
 
 4. Start the development server:
 
-``` npm start                                                     ```
+&nbsp;&nbsp;&nbsp; ``` npm start                                                     ```
 
 &nbsp;&nbsp;&nbsp;   or
 
-``` yarn start                                                    ```
+&nbsp;&nbsp;&nbsp; ``` yarn start                                                    ```
 
 ## Usage
 
