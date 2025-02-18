@@ -1,81 +1,82 @@
-#PokemonViaAPI
+# PokemonViaAPI
 
-Description
+## Description
 
 PokemonViaAPI is a React-based web application that fetches data from the PokeAPI to display the first 151 Pokémon. The app allows users to search, filter, and view detailed statistics for each Pokémon. The UI is built with Material-UI for a modern and responsive design.
 
-Features
+## Features
 
-Search & Filter: Users can search for Pokémon by name and filter them by type.
+* Search & Filter: Users can search for Pokémon by name and filter them by type.
 
-Deck Management: A deck system allows users to select and manage Pokémon.
+* Deck Management: A deck system allows users to select and manage Pokémon.
 
-Stats View: View detailed stats for each Pokémon.
+* Stats View: View detailed stats for each Pokémon.
 
-Context API: Uses React Context API to manage application state.
+* Context API: Uses React Context API to manage application state.
 
-Material-UI Styling: Provides a sleek and responsive user interface.
+* Material-UI Styling: Provides a sleek and responsive user interface.
 
-Background Theme: Custom background image applied for a visually appealing design.
+* Background Theme: Custom background image applied for a visually appealing design.
 
-Installation
+## Installation
 
-Prerequisites
+### Prerequisites
 
 Node.js (>= 14.x recommended)
 
 npm or yarn
 
-Steps
+### Steps
 
-Clone the repository:
+1. Clone the repository:
 
-git clone https://github.com/jbiehl88/PokemonViaAPI.git
+``` git clone https://github.com/jbiehl88/PokemonViaAPI.git ```
 
-Navigate to the project folder:
+2. Navigate to the project folder:
 
-cd PokemonViaAPI
+``` cd PokemonViaAPI ```
 
-Install dependencies:
+3. Install dependencies:
 
-npm install
-
-or
-
-yarn install
-
-Start the development server:
-
-npm start
+``` npm install ```
 
 or
 
-yarn start
+``` yarn install ```
 
-Usage
+4. Start the development server:
 
-Use the Search Bar to find a specific Pokémon.
+``` npm start ```
 
-Use the Type Filter to filter Pokémon by their type.
+or
 
-Click on a Pokémon to view its detailed stats.
+``` yarn start ```
 
-Manage your Deck by adding Pokémon for reference.
+## Usage
 
-Technologies Used
+* Use the Search Bar to find a specific Pokémon.
 
-React (with Hooks & Context API)
+* Use the Type Filter to filter Pokémon by their type.
 
-Material-UI for styling
+* Click on a Pokémon to view its detailed stats.
 
-PokeAPI for fetching Pokémon data
+* Manage your Deck by adding Pokémon for reference.
 
-JavaScript (ES6+)
+## Technologies Used
 
-CSS for additional styling
+* React (with Hooks & Context API)
 
-File Structure
+* Material-UI for styling
 
+* PokeAPI for fetching Pokémon data
+
+* JavaScript (ES6+)
+
+* CSS for additional styling
+
+## File Structure
+
+```
 PokemonViaAPI/
 ├── public/
 ├── src/
@@ -86,33 +87,27 @@ PokemonViaAPI/
 │   ├── index.js       # Entry point
 │   ├── styles.css     # Global styles
 └── README.md          # Project documentation
+```
 
-API Reference
+## API Reference
 
 This project utilizes the PokeAPI:
 
-Pokémon list: https://pokeapi.co/api/v2/pokemon?limit=151
+* Pokémon list: https://pokeapi.co/api/v2/pokemon?limit=151
 
-Pokémon details: https://pokeapi.co/api/v2/pokemon/{id}
+* Pokémon details: https://pokeapi.co/api/v2/pokemon/{id}
 
-Future Improvements
+## Future Improvements
 
-Add pagination for Pokémon list
+* Add pagination for Pokémon list
 
-Implement local storage for user preferences
+* Implement local storage for user preferences
 
-Improve animations and UI responsiveness
+* Improve animations and UI responsiveness
 
-Contributing
+## Author
 
-Contributions are welcome! Feel free to submit an issue or a pull request.
-
-License
-
-This project is licensed under the MIT License.
-
-Author
-
-Jordan BiehlGitHub Profile
+Jordan Biehl
+[GitHub Profile](https://github.com/jbiehl88)
 
 
