@@ -1,10 +1,12 @@
 import React from "react";
 import { TextField, Box } from "@mui/material";
+import { usePokemon } from "../context/PokemonContext";
 
-const SearchBar = ({ search, setSearch }) => {
+const SearchBar = () => {
+  const { search, setSearch } = usePokemon();
   return (
     <Box
-    sx={{ 
+      sx={{ 
         backgroundColor: "white", 
         padding: 2, 
         borderRadius: 2, 

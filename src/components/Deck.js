@@ -1,7 +1,9 @@
 import React from "react";
 import { Card, CardContent, CardMedia, Typography, Button, Box } from "@mui/material";
+import { useDeck } from "../context/DeckContext";
 
-const Deck = ({ deck, removeFromDeck }) => {
+const Deck = () => {
+  const { deck, removeFromDeck } = useDeck();
   return (
     <Box sx={{ flex: "1", minWidth: "250px", overflowY: "auto", backgroundColor: "white", mt: 3, borderRadius: 2, color: "black", p: 2 }}>
       <Typography variant="h6" sx={{ textAlign: "center", mb: 2 }}>

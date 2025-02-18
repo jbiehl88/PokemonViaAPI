@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Box } from "@mui/material";
 import Header from "./components/Header";
 import SearchBar from "./components/SearchBar";
@@ -8,96 +8,93 @@ import PokemonList from "./components/PokemonList";
 import TypeFilter from "./components/TypeFilter";
 import Squad from "./components/Squad";
 
+import { SquadProvider } from "./context/SquadContext";
+import { PokemonProvider } from "./context/PokemonContext";
+import { DeckProvider } from "./context/DeckContext";
+
 const App = () => {
   const [pokemonList, setPokemonList] = useState([]);
-  const [search, setSearch] = useState("");
-  const [filterType, setFilterType] = useState("");
-  const [types, setTypes] = useState([]);
-  const [deck, setDeck] = useState([]);
-  const [squad, setSquad] = useState([]);
+  // const [filterType, setFilterType] = useState("");
+  // const [types, setTypes] = useState([]);
+  // const [deck, setDeck] = useState([]);
 
-  useEffect(() => {
-    fetch("https://pokeapi.co/api/v2/pokemon?limit=151")
-      .then((res) => res.json())
-      .then(async (data) => {
-        const detailedPokemon = await Promise.all(
-          data.results.map(async (pokemon) => {
-            const res = await fetch(pokemon.url);
-            return res.json();
-          })
-        );
-        setPokemonList(detailedPokemon);
-        const allTypes = [...new Set(detailedPokemon.flatMap((p) => p.types.map((t) => t.type.name)))];
-        setTypes(allTypes);
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch("https://pokeapi.co/api/v2/pokemon?limit=151")
+  //     .then((res) => res.json())
+  //     .then(async (data) => {
+  //       const detailedPokemon = await Promise.all(
+  //         data.results.map(async (pokemon) => {
+  //           const res = await fetch(pokemon.url);
+  //           return res.json();
+  //         })
+  //       );
+  //       setPokemonList(detailedPokemon);
+  //       const allTypes = [...new Set(detailedPokemon.flatMap((p) => p.types.map((t) => t.type.name)))];
+  //       setTypes(allTypes);
+  //     });
+  // }, []);
 
-  const addToDeck = (pokemon) => {
-    if (!deck.find((p) => p.id === pokemon.id)) {
-      setDeck([...deck, pokemon]);
-    }
-  };
+  // const addToDeck = (pokemon) => {
+  //   if (!deck.find((p) => p.id === pokemon.id)) {
+  //     setDeck([...deck, pokemon]);
+  //   }
+  // };
 
-  const removeFromDeck = (id) => {
-    setDeck(deck.filter((pokemon) => pokemon.id !== id));
-  };
-
-  const addToSquad = (pokemon) => {
-    if (squad.length < 5 && !squad.some((p) => p.id === pokemon.id)) {
-      setSquad([...squad, pokemon]);
-    }
-  };
-  
-  const removeFromSquad = (id) => {
-    setSquad(squad.filter((pokemon) => pokemon.id !== id));
-  };
+  // const removeFromDeck = (id) => {
+  //   setDeck(deck.filter((pokemon) => pokemon.id !== id));
+  // };
 
   return (
-    <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
-      <Header />
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: { xs: "column", md: "row" },
-          flex: 1,
-          width: "99vw",
-          overflow: "hidden",
-        }}
-      >
+    <SquadProvider>
+      <PokemonProvider>
+      <DeckProvider>
+      <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
+        <Header />
         <Box
           sx={{
-            flex: "1",
-            minWidth: "250px",
-            overflowY: "auto",
-            backgroundColor: "rgba(0, 0, 0, 0)",
-            p: 2,
-            color: "black",
-            order: { xs: 2, md: 0 },
+            display: "flex",
+            flexDirection: { xs: "column", md: "row" },
+            flex: 1,
+            width: "99vw",
+            overflow: "hidden",
           }}
         >
-          <Deck deck={deck} removeFromDeck={removeFromDeck} />
-        </Box>
-        <Box sx={{ flex: "2", overflowY: "auto", p: 2 }}>
-          <SearchBar search={search} setSearch={setSearch} />
-          <TypeFilter filterType={filterType} setFilterType={setFilterType} types={types} />
-          <PokemonList pokemonList={pokemonList} search={search} filterType={filterType} addToDeck={addToDeck} addToSquad={addToSquad} squad={squad}/>
-        </Box>
-        <Box
-          sx={{
-            flex: "1",
-            minWidth: "250px",
-            overflowY: "auto",
-            backgroundColor: "rgba(0, 0, 0, 0)",
-            p: 2,
-            order: { xs: 3, md: 1 },
-          }}
-        >
-          <StatsView pokemonList={pokemonList} />
-          <Squad squad={squad} removeFromSquad={removeFromSquad} />
+          <Box
+            sx={{
+              flex: "1",
+              minWidth: "250px",
+              overflowY: "auto",
+              backgroundColor: "rgba(0, 0, 0, 0)",
+              p: 2,
+              color: "black",
+              order: { xs: 2, md: 0 },
+            }}
+          >
+            <Deck />
+          </Box>
+          <Box sx={{ flex: "2", overflowY: "auto", p: 2 }}>
+            <SearchBar />
+            <TypeFilter />
+            <PokemonList />
+          </Box>
+          <Box
+            sx={{
+              flex: "1",
+              minWidth: "250px",
+              overflowY: "auto",
+              backgroundColor: "rgba(0, 0, 0, 0)",
+              p: 2,
+              order: { xs: 3, md: 1 },
+            }}
+          >
+            <StatsView pokemonList={pokemonList} />
+            <Squad />
+          </Box>
         </Box>
       </Box>
-    </Box>
-
+      </DeckProvider>
+      </PokemonProvider>
+    </SquadProvider>
   );
 };
 

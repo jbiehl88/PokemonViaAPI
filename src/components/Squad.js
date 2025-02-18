@@ -1,7 +1,10 @@
 import React from "react";
 import { Box, Card, CardContent, CardMedia, Typography, Button } from "@mui/material";
+import { useSquad } from "../context/SquadContext";
 
-const Squad = ({ squad, removeFromSquad }) => {
+const Squad = () => {
+  const { squad, removeFromSquad } = useSquad();
+
   return (
     <Box sx={{ p: 2, backgroundColor: "white", mt: 2, borderRadius: 2 }}>
       <Typography variant="h6" align="center">Pokemon Squad</Typography>
