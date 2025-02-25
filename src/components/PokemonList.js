@@ -16,7 +16,7 @@ const PokemonList = () => {
   );
 
   return (
-    <Grid container spacing={2}>
+    <Grid container spacing={2} data-testid="pokemon-list">
       {filteredPokemon.map((pokemon) => (
         <Grid item xs={12} sm={6} md={4} lg={3} key={pokemon.id}>
           <Card>
@@ -29,6 +29,7 @@ const PokemonList = () => {
               <Button
                 variant="contained"
                 color="primary"
+                data-testid="add-to-deck-button"
                 onClick={() => addToDeck(pokemon)}
                 sx={{ mt: 1, width: "150px", height: "40px" }}
               >

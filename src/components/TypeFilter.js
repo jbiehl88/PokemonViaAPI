@@ -17,7 +17,11 @@ const TypeFilter = () => {
     >
       <FormControl fullWidth margin="normal">
         <InputLabel>Filter by Type</InputLabel>
-        <Select value={filterType} onChange={(e) => setFilterType(e.target.value)}>
+        <Select 
+          label="Type"
+          data-testid="filter-dropdown"
+          value={filterType} 
+          onChange={(e) => setFilterType(e.target.value)}>
           <MenuItem value="">All Types</MenuItem>
           {types.map((type) => (
             <MenuItem key={type} value={type}>{type}</MenuItem>

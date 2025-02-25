@@ -4,7 +4,7 @@ import { Card, CardContent, CardMedia, Typography, Grid } from "@mui/material";
 const PokemonCard = ({ pokemon }) => {
   return (
     <Grid item xs={12} sm={6} md={4} lg={3}>
-      <Card>
+      <Card data-testid="pokemon-card">
         <CardMedia
           component="img"
           height="140"

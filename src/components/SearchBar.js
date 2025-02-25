@@ -18,6 +18,7 @@ const SearchBar = () => {
         <TextField
         label="Search Pokémon"
         variant="outlined"
+        data-testid="search-input"
         fullWidth
         margin="normal"
         value={search}
