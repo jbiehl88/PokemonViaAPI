@@ -74,6 +74,8 @@ npm or yarn
 
 * CSS for additional styling
 
+* Cypress Testing
+
 ## File Structure
 
 ```
