@@ -4,8 +4,8 @@ COPY . /app
 
 WORKDIR /app
 
-RUN npm install
+RUN npm install && npm run build_docker
 
 EXPOSE 3000
 
-CMD [ "npm", "start" ]
+CMD ["npm", "run", "start_docker"]
